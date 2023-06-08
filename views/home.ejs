@@ -1,0 +1,20 @@
+<%-include("./partials/header")-%>
+<h1>Home</h1>
+<!--gets the arry from app.js and for each object it will genearte the title and body which are also passed through-->
+<% posts.forEach(function(post){ %>
+<div>
+    <!-- creates a link with it being the title of the post at the end which triggers the get method for it in app.js-->
+    <a href="/posts/<%=(post.title)%>">
+        <h1 ><%=post.title%></h1>
+    </a>
+    <p>
+        <!--activates the textLimit function which is passed through, adds the limit character ammount and sets the text to the body property of the specific object-->
+        <%=textLimit(post.body,100)%>
+        <a href="/posts/<%=(post.title)%>">Read More</a>
+    </p>
+</div>
+<%})%>
+
+
+<%-include( "./partials/footer")-%>
+
